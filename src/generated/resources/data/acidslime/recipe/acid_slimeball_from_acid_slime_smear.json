@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "acidslime:acid_slime_smear"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "acidslime:acidslimeball"
+  }
+}

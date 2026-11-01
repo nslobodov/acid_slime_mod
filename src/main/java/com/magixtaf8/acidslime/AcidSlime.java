@@ -1,7 +1,12 @@
 package com.magixtaf8.acidslime;
 
 import com.magixtaf8.acidslime.block.ModBlocks;
+import com.magixtaf8.acidslime.entity.ModEntities;
+import com.magixtaf8.acidslime.entity.client.AcidSlimeRenderer;
+import com.magixtaf8.acidslime.item.ModCreativeModeTabs;
 import com.magixtaf8.acidslime.item.ModItems;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.world.level.ItemLike;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -54,8 +59,10 @@ public class AcidSlime {
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
+        ModCreativeModeTabs.register(modEventBus);
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -76,6 +83,9 @@ public class AcidSlime {
         if(event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
             event.accept(ModBlocks.ACID_SLIME_SMEAR);
         }
+        if(event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
+            event.accept((ItemLike) ModItems.ACID_SLIME_SPAWN_EGG);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -88,6 +98,7 @@ public class AcidSlime {
     static class ClientModEvents {
         @SubscribeEvent
         static void onClientSetup(FMLClientSetupEvent event) {
+            EntityRenderers.register(ModEntities.ACID_SLIME.get(), AcidSlimeRenderer::new);
         }
     }
 }

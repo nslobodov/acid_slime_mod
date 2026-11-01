@@ -18,7 +18,9 @@ public class ModBlocks {
             DeferredRegister.createBlocks(AcidSlime.MODID);
     public static final DeferredBlock<Block> ACID_SLIME_SMEAR = registerBlock("acid_slime_smear",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(4f).sound(SoundType.SLIME_BLOCK)));
+                    .strength(4f).sound(SoundType.SLIME_BLOCK)
+                    .requiresCorrectToolForDrops()));
+
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
