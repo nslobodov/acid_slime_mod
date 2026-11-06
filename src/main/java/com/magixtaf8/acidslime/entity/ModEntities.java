@@ -16,7 +16,7 @@ public class ModEntities {
 
     public static final Supplier<EntityType<AcidSlimeEntity>> ACID_SLIME =
             ENTITY_TYPES.register("acid_slime", () -> EntityType.Builder.of(AcidSlimeEntity::new, MobCategory.CREATURE)
-                    .sized(0.75f, 0.35f).build("acid_slime"));
+                    .sized(0.5f, 0.5f).build("acid_slime"));
 
     public static void register(IEventBus eventbus) {
         ENTITY_TYPES.register(eventbus);
