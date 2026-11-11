@@ -11,6 +11,7 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
+import java.util.Collections;
 import java.util.Set;
 
 public class ModBlockLootTableProvider extends BlockLootSubProvider {
@@ -22,6 +23,9 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     @Override
     protected void generate() {
         add(ModBlocks.ACID_SLIME_SMEAR.get(), block -> createMushroomBlockDrop(ModBlocks.ACID_SLIME_SMEAR.get(), ModItems.ACIDSLIMEBALL.get()));
+        this.dropWhenSilkTouch(ModBlocks.ACID_SLIME_STAIN.get());
+        add(ModBlocks.ACID_SLIME_SPLASH.get(), block -> noDrop());
+
     }
 
     @Override

@@ -1,0 +1,30 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "north": {
+          "texture": "#texture"
+        },
+        "south": {
+          "texture": "#texture"
+        }
+      },
+      "from": [
+        0,
+        0,
+        0.05
+      ],
+      "to": [
+        16,
+        16,
+        0.05
+      ]
+    }
+  ],
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "particle": "acidslime:block/acid_slime_stain",
+    "texture": "acidslime:block/acid_slime_stain"
+  }
+}

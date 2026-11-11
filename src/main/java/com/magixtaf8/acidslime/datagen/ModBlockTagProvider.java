@@ -22,5 +22,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.ACID_SLIME_SMEAR.get());
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.ACID_SLIME_SMEAR.get());
+        tag(BlockTags.MINEABLE_WITH_SHOVEL)
+                .add(ModBlocks.ACID_SLIME_STAIN.get());
     }
 }

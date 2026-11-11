@@ -1,12 +1,16 @@
 package com.magixtaf8.acidslime.block;
 
 import com.magixtaf8.acidslime.AcidSlime;
+import com.magixtaf8.acidslime.block.custom.AcidSlimeSplashBlock;
+import com.magixtaf8.acidslime.block.custom.AcidSlimeStainBlock;
 import com.magixtaf8.acidslime.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -19,7 +23,30 @@ public class ModBlocks {
     public static final DeferredBlock<Block> ACID_SLIME_SMEAR = registerBlock("acid_slime_smear",
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(4f).sound(SoundType.SLIME_BLOCK)
-                    .requiresCorrectToolForDrops()));
+                    .requiresCorrectToolForDrops()
+            )
+    );
+
+    public static final DeferredBlock<Block> ACID_SLIME_STAIN = registerBlock("acid_slime_stain",
+            () -> new AcidSlimeStainBlock(BlockBehaviour.Properties.of()
+                    .noCollission() // Critical so players can step into it
+                    .strength(0.8F)
+                    .sound(SoundType.SLIME_BLOCK)
+                    .noOcclusion()
+                    .pushReaction(PushReaction.DESTROY)
+            )
+    );
+
+    public static final DeferredBlock<Block> ACID_SLIME_SPLASH = registerBlock("acid_slime_splash",
+            () -> new AcidSlimeSplashBlock(BlockBehaviour.Properties.of()
+                    .noCollission()
+                    .strength(0.8f) // Ломается быстрее, чем постоянное пятно
+                    .sound(SoundType.SLIME_BLOCK)
+                    .noOcclusion()
+                    .pushReaction(PushReaction.DESTROY)
+            ));
+
+
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);

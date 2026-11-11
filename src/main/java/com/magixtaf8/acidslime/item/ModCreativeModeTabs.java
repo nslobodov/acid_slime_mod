@@ -22,6 +22,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.ACID_SLIME_SMEAR);
                         output.accept(ModItems.CHANGE);
                         output.accept(ModItems.ACID_SLIME_SPAWN_EGG);
+                        output.accept(ModBlocks.ACID_SLIME_STAIN);
+                        //output.accept(ModItems.ACIDPROJECTILE);
                     })
 
 

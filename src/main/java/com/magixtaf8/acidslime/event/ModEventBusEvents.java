@@ -1,9 +1,14 @@
 package com.magixtaf8.acidslime.event;
 
 import com.magixtaf8.acidslime.AcidSlime;
+import com.magixtaf8.acidslime.block.ModBlocks;
 import com.magixtaf8.acidslime.entity.ModEntities;
 import com.magixtaf8.acidslime.entity.client.AcidSlimeModel;
 import com.magixtaf8.acidslime.entity.custom.AcidSlimeEntity;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.util.datafix.fixes.EntityRenameFix;
 import net.minecraft.world.entity.SpawnPlacementType;
 import net.minecraft.world.entity.SpawnPlacementTypes;
@@ -11,12 +16,21 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 
 @EventBusSubscriber(modid = AcidSlime.MODID, bus = EventBusSubscriber.Bus.MOD)
 public class ModEventBusEvents {
+    @SubscribeEvent
+    public static void onClientSetup(FMLClientSetupEvent event) {
+        EntityRenderers.register(ModEntities.ACID_SLIMEBALL_PROJECTILE.get(), ThrownItemRenderer::new);
+//        event.enqueueWork(() -> {
+//            // Cutout treats completely empty/invisible pixels properly (like glass or vines)
+//            ItemBlockRenderTypes.setRenderLayer(ModBlocks.ACID_SLIME_STAIN.get(), RenderType.cutout());
+//        });
+    }
     @SubscribeEvent
     public static void registerEvents(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(AcidSlimeModel.LAYER_LOCATION, AcidSlimeModel::createBodyLayer);

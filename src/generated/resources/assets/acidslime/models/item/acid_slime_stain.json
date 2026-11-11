@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "acidslime:block/acid_slime_stain"
+  }
+}

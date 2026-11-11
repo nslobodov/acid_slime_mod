@@ -82,6 +82,7 @@ public class AcidSlime {
         }
         if(event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
             event.accept(ModBlocks.ACID_SLIME_SMEAR);
+            event.accept(ModBlocks.ACID_SLIME_STAIN);
         }
         if(event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
             event.accept((ItemLike) ModItems.ACID_SLIME_SPAWN_EGG);
