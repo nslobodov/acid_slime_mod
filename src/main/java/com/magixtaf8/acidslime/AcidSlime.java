@@ -1,6 +1,7 @@
 package com.magixtaf8.acidslime;
 
 import com.magixtaf8.acidslime.block.ModBlocks;
+import com.magixtaf8.acidslime.component.ModDataComponents;
 import com.magixtaf8.acidslime.entity.ModEntities;
 import com.magixtaf8.acidslime.entity.client.AcidSlimeRenderer;
 import com.magixtaf8.acidslime.item.ModCreativeModeTabs;
@@ -63,6 +64,7 @@ public class AcidSlime {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModEntities.register(modEventBus);
+        ModDataComponents.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -81,8 +83,8 @@ public class AcidSlime {
             event.accept(ModItems.ACIDSLIMEBALL);
         }
         if(event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
-            event.accept(ModBlocks.ACID_SLIME_SMEAR);
             event.accept(ModBlocks.ACID_SLIME_STAIN);
+            event.accept(ModBlocks.ACID_SLIME_BLOCK);
         }
         if(event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
             event.accept((ItemLike) ModItems.ACID_SLIME_SPAWN_EGG);

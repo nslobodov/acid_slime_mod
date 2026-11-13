@@ -19,11 +19,9 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.acidslime.acid_slime_items"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.ACIDSLIMEBALL);
-                        output.accept(ModBlocks.ACID_SLIME_SMEAR);
-                        output.accept(ModItems.CHANGE);
                         output.accept(ModItems.ACID_SLIME_SPAWN_EGG);
                         output.accept(ModBlocks.ACID_SLIME_STAIN);
-                        //output.accept(ModItems.ACIDPROJECTILE);
+                        output.accept(ModBlocks.ACID_SLIME_BLOCK);
                     })
 
 

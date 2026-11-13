@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_acid_slime_smear": {
+    "has_acid_slime_ball": {
       "conditions": {
         "items": [
           {
-            "items": "acidslime:acid_slime_smear"
+            "items": "acidslime:acidslimeball"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "acidslime:acid_slimeball_from_acid_slime_smear"
+        "recipe": "acidslime:golden_boots_acid_slime_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_acid_slime_smear"
+      "has_acid_slime_ball"
     ]
   ],
   "rewards": {
     "recipes": [
-      "acidslime:acid_slimeball_from_acid_slime_smear"
+      "acidslime:golden_boots_acid_slime_smithing"
     ]
   }
 }

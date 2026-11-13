@@ -1,0 +1,10 @@
+{
+  "item.acidslime.acidslimeball": "Кислотный слизневый сгусток",
+  "block.acidslime.acid_slime_stain": "Пятно кислотной слизи",
+  "creativetab.acidslime.acid_slime_items": "Кислотно-слизевые предметы",
+  "item.acidslime.acid_slime_spawn_egg": "Яйцо призыва кислотного слизня",
+  "entity.acidslime.acid_slime": "Кислотный слизень",
+  "tooltip.acidslime.acid_slime_upgraded": "Кислотно-слизевое улучшение",
+  "block.acidslime.acid_slime_block": "Кислотный слизневый блок",
+  "block.acidslime.acid_slime_splash": "Клякса кислотной слизи"
+}

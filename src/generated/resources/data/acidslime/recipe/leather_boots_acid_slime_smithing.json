@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "acidslime:acidslimeball"
+  },
+  "base": {
+    "item": "minecraft:leather_boots"
+  },
+  "result": {
+    "components": {
+      "acidslime:acid_slime_upgraded": true
+    },
+    "count": 1,
+    "id": "minecraft:leather_boots"
+  },
+  "template": []
+}

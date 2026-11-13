@@ -15,6 +15,5 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         basicItem(ModItems.ACIDSLIMEBALL.get());
         withExistingParent(ModItems.ACID_SLIME_SPAWN_EGG.getId().getPath(), mcLoc("item/template_spawn_egg"));
-        basicItem(ModItems.CHANGE.get());
     }
 }

@@ -22,9 +22,9 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        add(ModBlocks.ACID_SLIME_SMEAR.get(), block -> createMushroomBlockDrop(ModBlocks.ACID_SLIME_SMEAR.get(), ModItems.ACIDSLIMEBALL.get()));
         this.dropWhenSilkTouch(ModBlocks.ACID_SLIME_STAIN.get());
         add(ModBlocks.ACID_SLIME_SPLASH.get(), block -> noDrop());
+        dropSelf(ModBlocks.ACID_SLIME_BLOCK.get());
 
     }
 

@@ -1,5 +1,7 @@
 package com.magixtaf8.acidslime.block.custom;
 
+import com.magixtaf8.acidslime.component.ModDataComponents;
+import com.magixtaf8.acidslime.entity.ModEntities;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -8,7 +10,9 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -46,8 +50,17 @@ public class AcidSlimeSplashBlock extends MultifaceBlock {
     @Override
     protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
         if (entity instanceof LivingEntity livingEntity) {
-            entity.makeStuckInBlock(state, new Vec3(0.50D, 0.50D, 0.50D));
+            if (entity.getType() == ModEntities.ACID_SLIME.get()) {
+                super.entityInside(state, level, pos, entity);
+                return;
+            }
+            ItemStack feetStack = livingEntity.getItemBySlot(EquipmentSlot.FEET);
+            boolean hasUpgradedBoots = feetStack.getOrDefault(ModDataComponents.ACID_SLIME_UPGRADED.get(), false);
 
+            if (!hasUpgradedBoots) {
+                // 1. Замедление должно вызываться ДО проверки isClientSide (и на клиенте, и на сервере)
+                entity.makeStuckInBlock(state, new Vec3(0.50D, 0.50D, 0.50D));
+            }
             if (!level.isClientSide() && !livingEntity.hasEffect(MobEffects.POISON)) {
                 livingEntity.addEffect(new MobEffectInstance(MobEffects.POISON, 80, 0));
             }

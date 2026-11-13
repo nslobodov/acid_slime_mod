@@ -18,10 +18,6 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.ACID_SLIME_SMEAR.get());
-        tag(BlockTags.NEEDS_IRON_TOOL)
-                .add(ModBlocks.ACID_SLIME_SMEAR.get());
         tag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .add(ModBlocks.ACID_SLIME_STAIN.get());
     }

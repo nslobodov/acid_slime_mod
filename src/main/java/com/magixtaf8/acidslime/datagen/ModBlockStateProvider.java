@@ -20,11 +20,22 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        blockWithItem(ModBlocks.ACID_SLIME_SMEAR);
+        slimeBlockWithItem(ModBlocks.ACID_SLIME_BLOCK);
 
         // Генерируем блок, состояния и модель предмета для обоих Multiface-блоков
         multifaceBlockWithItem(ModBlocks.ACID_SLIME_STAIN, "acid_slime_stain");
         multifaceBlockWithItem(ModBlocks.ACID_SLIME_SPLASH, "acid_slime_splash");
+    }
+
+    private void slimeBlockWithItem(DeferredBlock<?> deferredBlock) {
+        String name = deferredBlock.getId().getPath();
+
+        ModelFile slimeModel = models().withExistingParent(name, mcLoc("block/slime_block"))
+                .renderType("translucent")
+                .texture("texture", modLoc("block/" + name))
+                .texture("particle", modLoc("block/" + name));
+
+        simpleBlockWithItem(deferredBlock.get(), slimeModel);
     }
 
     public void blockWithItem(DeferredBlock<?> deferredBlock) {

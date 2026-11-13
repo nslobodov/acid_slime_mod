@@ -1,12 +1,14 @@
 package com.magixtaf8.acidslime.block;
 
 import com.magixtaf8.acidslime.AcidSlime;
+import com.magixtaf8.acidslime.block.custom.AcidSlimeBlock;
 import com.magixtaf8.acidslime.block.custom.AcidSlimeSplashBlock;
 import com.magixtaf8.acidslime.block.custom.AcidSlimeStainBlock;
 import com.magixtaf8.acidslime.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
@@ -20,12 +22,6 @@ import java.util.function.Supplier;
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS =
             DeferredRegister.createBlocks(AcidSlime.MODID);
-    public static final DeferredBlock<Block> ACID_SLIME_SMEAR = registerBlock("acid_slime_smear",
-            () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(4f).sound(SoundType.SLIME_BLOCK)
-                    .requiresCorrectToolForDrops()
-            )
-    );
 
     public static final DeferredBlock<Block> ACID_SLIME_STAIN = registerBlock("acid_slime_stain",
             () -> new AcidSlimeStainBlock(BlockBehaviour.Properties.of()
@@ -45,6 +41,8 @@ public class ModBlocks {
                     .noOcclusion()
                     .pushReaction(PushReaction.DESTROY)
             ));
+    public static final DeferredBlock<Block> ACID_SLIME_BLOCK = registerBlock("acid_slime_block",
+            () -> new AcidSlimeBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SLIME_BLOCK)));
 
 
 

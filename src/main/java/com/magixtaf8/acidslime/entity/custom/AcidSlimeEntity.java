@@ -93,6 +93,14 @@ public class AcidSlimeEntity extends Slime {
         return 4;
     }
 
+    @Override
+    public boolean canBeAffected(MobEffectInstance effectInstance) {
+        if (effectInstance.is(MobEffects.POISON)) {
+            return false;
+        }
+        return super.canBeAffected(effectInstance);
+    }
+
     // Добавляем этот метод, чтобы ModEventBusEvents перестал гореть красным
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMonsterAttributes();

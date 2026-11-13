@@ -1,8 +1,12 @@
 {
   "item.acidslime.acidslimeball": "Acid Slimeball",
   "block.acidslime.acid_slime_smear": "Acid Slime Smear",
+  "block.acidslime.acid_slime_stain": "Acid Slime Stain",
   "creativetab.acidslime.acid_slime_items": "Acid Slime Items",
   "item.acidslime.change": "Block Changer Tool",
   "item.acidslime.acid_slime_spawn_egg": "Acid Slime Spawn Egg",
-  "entity.acidslime.acid_slime": "Acid Slime"
+  "entity.acidslime.acid_slime": "Acid Slime",
+  "tooltip.acidslime.acid_slime_upgraded": "Acid Slime Upgraded",
+  "block.acidslime.acid_slime_block": "Acid Slime Block",
+  "block.acidslime.acid_slime_splash": "Acid Slime Splash"
 }
